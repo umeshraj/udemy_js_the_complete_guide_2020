@@ -8,5 +8,5 @@ function alertOne(name) {
   alert(`Hello ${name}`);
 }
 
-alertAuto();
+task3Element.addEventListener("click", alertAuto);
 alertOne("Umesh");
