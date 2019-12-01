@@ -1,13 +1,15 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
 
+// Gets input from input field
 function getUserNumberInput() {
   return parseInt(userInput.value);
 }
 
+// Generates & writes message log
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calculationDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calculationDescription);
+  outputResult(currentResult, calculationDescription); // from vendor file
 }
 
 function add() {
