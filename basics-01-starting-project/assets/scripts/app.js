@@ -28,6 +28,7 @@ function add() {
   };
   // list of objects
   logEntries.push(logEntry);
+  console.log(logEntry["operation"]);
   console.log(logEntries);
 }
 
