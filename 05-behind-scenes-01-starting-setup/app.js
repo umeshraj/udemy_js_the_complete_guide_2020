@@ -1,13 +1,16 @@
-let name = "Umesh";
+// let name = "Umesh";
 
-if (name === "Umesh") {
-  let hobbies = ["tennis", "food"];
-}
+// if (name === "Umesh") {
+//   let hobbies = ["tennis", "food"];
+// }
 
-function greet() {
-  let age = 30;
-  console.log(name);
-}
+// function greet() {
+//   let age = 30;
+//   console.log(name);
+// }
 
-console.log(name, hobbies);
-greet();
+// console.log(name, hobbies);
+// greet();
+
+console.log(userName);
+var userName = "umesh";
