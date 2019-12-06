@@ -1,14 +1,14 @@
 const startGameBtn = document.getElementById("start-game-btn");
 
-function startGame() {
+const start = function startGame() {
   console.log("Game is starting..");
-}
+};
 
 // direct call
 // startGame();
 
 // indirect call
-startGameBtn.addEventListener("click", startGame);
+startGameBtn.addEventListener("click", start);
 
 // // objects can have functions (aka methods)
 // const person = {
