@@ -74,4 +74,14 @@ const sumUp = (...numbers) => {
   }
   return sum;
 };
+
+const subtractUp = function() {
+  let sum = 0;
+  for (const num of arguments) {
+    sum -= num;
+  }
+  return sum;
+};
+
 console.log(sumUp(1, 2, 3, 4));
+console.log(subtractUp(1, 2, 3, 4));
