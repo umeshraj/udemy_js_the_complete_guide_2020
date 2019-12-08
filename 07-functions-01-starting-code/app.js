@@ -79,17 +79,33 @@ const sumUp = (resultHandler, ...numbers) => {
   resultHandler(sum);
 };
 
-const subtractUp = function() {
+const subtractUp = function(resultHandler, ...numbers) {
   let sum = 0;
-  for (const num of arguments) {
+  for (const num of numbers) {
     sum -= num;
   }
-  return sum;
+  resultHandler(sum);
 };
 
-const showResult = result => {
-  alert("The result of adding numbers is :" + result);
+const combineUp = function(resultHandler, operation, ...numbers) {
+  const validateNumber = number => {
+    return isNaN(number) ? 0 : number;
+  };
+
+  let sum = 0;
+  for (const num of numbers) {
+    if (operation === "ADD") {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
+  }
+  resultHandler(sum, "The result after adding all numbers is: ");
 };
 
-sumUp(showResult, 1, 2, 3, 4);
-console.log(subtractUp(1, 2, 3, 4));
+const showResult = (result, messageTxt) => {
+  alert(messageTxt + " " + result);
+};
+
+combineUp(showResult, "ADD", 1, 2, 3, 4);
+combineUp(showResult, "SUBTRACT", 1, 2, 3, 4);
