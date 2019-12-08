@@ -14,6 +14,10 @@
 // };
 
 // part 2c
-const sayHello = name => `Hello ${name}`;
+// const sayHello = name => `Hello ${name}`;
 
-console.log(sayHello("Umesh"));
+const sayHello = (name = "umesh") => {
+  console.log(`Hello ${name}`);
+};
+
+sayHello();
