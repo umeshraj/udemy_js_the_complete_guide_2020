@@ -103,9 +103,9 @@ const combineUp = function(resultHandler, operation, ...numbers) {
   resultHandler(sum, "The result after adding all numbers is: ");
 };
 
-const showResult = (result, messageTxt) => {
+const showResult = (messageTxt, result) => {
   alert(messageTxt + " " + result);
 };
 
-combineUp(showResult, "ADD", 1, 2, 3, 4);
-combineUp(showResult, "SUBTRACT", 1, 2, 3, 4);
+combineUp(showResult.bind(this, "result after add: "), "ADD", 1, 2, 3, 4);
+combineUp(showResult.bind(this, "result after sub: "), "SUBTRACT", 1, 2, 3, 4);
