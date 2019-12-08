@@ -16,8 +16,31 @@
 // part 2c
 // const sayHello = name => `Hello ${name}`;
 
-const sayHello = (name = "umesh") => {
-  console.log(`Hello ${name}`);
+// // part 3
+// const sayHello = (name = "umesh") => {
+//   console.log(`Hello ${name}`);
+// };
+
+// part 4
+const checkInput = function(cb, ...strings) {
+  let hasEmptyText = false;
+  for (const text of strings) {
+    if (!text) {
+      hasEmptyText = true;
+      break;
+    }
+  }
+  if (!hasEmptyText) {
+    cb();
+  }
 };
 
-sayHello();
+// sayHello();
+checkInput(
+  () => {
+    console.log("All not empty");
+  },
+  "Hello",
+  "world",
+  "asf"
+);
