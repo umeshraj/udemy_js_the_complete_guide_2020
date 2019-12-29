@@ -16,3 +16,22 @@ const listItemElements = document.querySelectorAll("li");
 for (const listItemEl of listItemElements) {
   console.log(listItemEl);
 }
+
+// change section
+const section = document.querySelector("section");
+const button = document.querySelector("button");
+
+// inline style
+// section.style.background = "blue";
+
+// remove red-bg
+section.className = "";
+section.className = "red-bg";
+
+button.addEventListener("click", () => {
+  if (section.className === "red-bg visible") {
+    section.className = "red-bg invisible";
+  } else {
+    section.className = "red-bg visible";
+  }
+});

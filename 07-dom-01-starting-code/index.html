@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>DOM Interaction</title>
+    <!-- manual styles -->
+    <style>
+      .red-bg {
+        background-color: red;
+        color: white;
+      }
+
+      .visible {
+        display: block;
+      }
+
+      .invisible {
+        display: none;
+      }
+    </style>
+
     <script src="app.js" defer></script>
   </head>
   <body>
     <header><h1 id="main-title">Dive into the DOM!</h1></header>
 
-    <ul>
-      <li>item 1</li>
-      <li class="list-item">item 2</li>
-      <li class="list-item">item 3</li>
-    </ul>
+    <section class="red-bg">
+      <ul>
+        <li>item 1</li>
+        <li class="list-item">item 2</li>
+        <li class="list-item">item 3</li>
+      </ul>
+    </section>
+
+    <!-- button -->
+    <button>Toggle Visibility</button>
     <!-- input -->
     <input type="text" value="default text" />
   </body>
