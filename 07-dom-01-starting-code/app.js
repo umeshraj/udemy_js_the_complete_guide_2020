@@ -29,9 +29,14 @@ section.className = "";
 section.className = "red-bg";
 
 button.addEventListener("click", () => {
-  if (section.className === "red-bg visible") {
-    section.className = "red-bg invisible";
-  } else {
-    section.className = "red-bg visible";
-  }
+  // // long way
+  // if (section.className === "red-bg visible") {
+  //   section.className = "red-bg invisible";
+  // } else {
+  //   section.className = "red-bg visible";
+  // }
+
+  // faster way
+  section.classList.toggle("visible");
+  section.classList.toggle("invisible");
 });
