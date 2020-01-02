@@ -18,6 +18,11 @@ const updateUI = () => {
   }
 };
 
+const closeMovieDeletionModal = () => {
+  toggleBackdrop();
+  deleteMovieModal.classList.remove("visible");
+};
+
 const deleteMovieHandler = movieId => {
   let identifiedIndex = 0;
   for (const movie of movies) {
@@ -30,19 +35,25 @@ const deleteMovieHandler = movieId => {
   // remove from list in DOM
   const listRoot = document.getElementById("movie-list");
   listRoot.children[identifiedIndex].remove();
-};
-
-const closeMovieDeletionModal = () => {
-  toggleBackdrop();
-  deleteMovieModal.classList.remove("visible");
+  closeMovieDeletionModal();
 };
 
 const startDeleteMovieHandler = movieId => {
   deleteMovieModal.classList.add("visible");
   toggleBackdrop();
   const cancelDeletionButton = deleteMovieModal.querySelector(".btn--passive");
-  const confirmDeletionButton = deleteMovieModal.querySelector(".btn--danger");
+  let confirmDeletionButton = deleteMovieModal.querySelector(".btn--danger");
 
+  // remove previous event handlers. will not work
+  // confirmDeletionButton.removeEventListener(
+  //   "click",
+  //   deleteMovieHandler.bind(null, movieId)
+  // );
+  // make new button to avoid multiple event listeners on same button
+  confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+  confirmDeletionButton = deleteMovieModal.querySelector(".btn--danger");
+
+  cancelDeletionButton.removeEventListener("click", closeMovieDeletionModal);
   cancelDeletionButton.addEventListener("click", closeMovieDeletionModal);
   confirmDeletionButton.addEventListener(
     "click",
@@ -87,6 +98,7 @@ const showMovieModal = () => {
 
 const cancelAddMovieHandler = () => {
   closeMovieModal();
+  toggleBackdrop();
   clearMovieInput();
 };
 
@@ -137,6 +149,7 @@ const addMovieHandler = () => {
 const backdropClickHandler = () => {
   closeMovieModal();
   closeMovieDeletionModal();
+  clearMovieInput();
 };
 
 startAddMovieButton.addEventListener("click", showMovieModal);
