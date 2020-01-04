@@ -45,7 +45,7 @@
 // console.log(hobbies);
 
 // other array methods
-const testResults = [1, 1.3, 5, 8, 9, -4];
+const testResults = [1, 1.3, 5, 8, 1.3, 9, -4];
 const storedResults = testResults.slice();
 
 testResults.push(91);
@@ -56,3 +56,11 @@ console.log(partResults);
 
 const concatResults = testResults.concat([1, 2]);
 console.log(concatResults);
+
+// index of
+console.log(testResults.indexOf(1.3));
+console.log(testResults.lastIndexOf(1.3));
+
+// indexOf does not work for objects
+personData = [{ name: "max" }, { name: "umesh" }];
+console.log(personData.indexOf({ name: "max" }));
