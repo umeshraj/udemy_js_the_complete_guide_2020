@@ -123,3 +123,7 @@ const filteredArray = prices.filter((price, index, prices) => {
   return price > 6;
 });
 console.log(filteredArray);
+
+// cleaner arrow
+const filteredArray2 = prices.filter(price => price > 6);
+console.log(filteredArray2);
