@@ -156,3 +156,35 @@ console.log(transformedData);
 const nameFragments = ["Umesh", "Rajashekar"];
 const name = nameFragments.join(" ");
 console.log(name);
+
+// spread operator
+const copiedNameFragments = [...nameFragments];
+console.log(copiedNameFragments);
+
+// spread for math
+console.log(Math.min(...prices));
+
+// mistake in copying objects
+const persons = [
+  { name: "umesh", age: 30 },
+  { name: "abc", age: 40 }
+];
+const copiedPersons = [...persons];
+
+persons.push({ name: "Anna", age: 29 });
+console.log(persons, copiedPersons);
+persons[0].age = 100;
+console.log(persons, copiedPersons);
+
+// deep copy
+const deepCopyPersons = [
+  ...persons.map(person => {
+    return { name: person.name, age: person.age };
+  })
+];
+persons[0].age = 200;
+console.log(persons, deepCopyPersons);
+
+// deep copy with tiny arrow call
+const deepCopyPersons2 = [...persons.map(p => ({ name: p.name, age: p.age }))];
+console.log(deepCopyPersons2);
