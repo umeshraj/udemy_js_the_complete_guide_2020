@@ -127,3 +127,22 @@ console.log(filteredArray);
 // cleaner arrow
 const filteredArray2 = prices.filter(price => price > 6);
 console.log(filteredArray2);
+
+// reduce
+let sum = 0;
+prices.forEach(p => {
+  sum += p;
+});
+console.log(sum);
+
+const sumReduce = prices.reduce((prevValue, curValue, curIndex, prices) => {
+  return prevValue + curValue;
+}, 0);
+console.log(sumReduce);
+
+// concise arrow fn
+const sumReduce2 = prices.reduce(
+  (prevValue, curValue) => prevValue + curValue,
+  0
+);
+console.log(sumReduce2);
