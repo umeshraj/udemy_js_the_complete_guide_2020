@@ -79,3 +79,6 @@ const maxIndex = personData.findIndex((person, index, personData) => {
   return person.name === "Max";
 });
 console.log(maxIndex, personData[maxIndex]);
+
+// includes (primitive only)
+console.log(testResults.includes(1.3));
