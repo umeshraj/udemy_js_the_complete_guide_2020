@@ -146,3 +146,13 @@ const sumReduce2 = prices.reduce(
   0
 );
 console.log(sumReduce2);
+
+// split()
+const data = "new york; 10.99; 2000";
+const transformedData = data.split(";");
+console.log(transformedData);
+
+// join()
+const nameFragments = ["Umesh", "Rajashekar"];
+const name = nameFragments.join(" ");
+console.log(name);
