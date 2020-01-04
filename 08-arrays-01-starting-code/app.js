@@ -53,3 +53,6 @@ console.log(testResults, storedResults);
 
 const partResults = testResults.slice(0, 3);
 console.log(partResults);
+
+const concatResults = testResults.concat([1, 2]);
+console.log(concatResults);
