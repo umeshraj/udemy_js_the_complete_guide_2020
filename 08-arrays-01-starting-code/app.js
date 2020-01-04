@@ -62,5 +62,20 @@ console.log(testResults.indexOf(1.3));
 console.log(testResults.lastIndexOf(1.3));
 
 // indexOf does not work for objects
-personData = [{ name: "max" }, { name: "umesh" }];
+personData = [{ name: "Max" }, { name: "umesh" }];
 console.log(personData.indexOf({ name: "max" }));
+
+// finding objects in list
+const umesh = personData.find((person, idx, personData) => {
+  return person.name === "umesh";
+});
+console.log(umesh);
+
+umesh.name = "Anna";
+console.log(personData);
+
+// findIndex()
+const maxIndex = personData.findIndex((person, index, personData) => {
+  return person.name === "Max";
+});
+console.log(maxIndex, personData[maxIndex]);
