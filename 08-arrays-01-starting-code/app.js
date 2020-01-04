@@ -19,3 +19,16 @@ console.log(listItems);
 
 const arrayListItems = Array.from(listItems);
 console.log(arrayListItems);
+
+// Adding to arrays
+
+const hobbies = ["cooking", "tennis"];
+hobbies.push("tv");
+hobbies.unshift("code");
+console.log(hobbies);
+
+// remove
+hobbies.pop();
+console.log(hobbies);
+hobbies.shift();
+console.log(hobbies);
