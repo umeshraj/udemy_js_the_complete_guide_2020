@@ -32,3 +32,14 @@ hobbies.pop();
 console.log(hobbies);
 hobbies.shift();
 console.log(hobbies);
+
+// splicing
+hobbies.splice(0, 0, "food");
+console.log(hobbies);
+
+hobbies.splice(1, 0, "cricket");
+console.log(hobbies);
+
+// deletion
+hobbies.splice(0, 1);
+console.log(hobbies);
