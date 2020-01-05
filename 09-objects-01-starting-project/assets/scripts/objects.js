@@ -1,3 +1,10 @@
+const movieList = document.getElementById("movie-list");
+
+movieList.style.backgroundColor = "red";
+// also css names can be used
+movieList.style["background-color"] = "pink";
+movieList.style.display = "block";
+
 let person = {
   name: "Umesh",
   age: 40,
