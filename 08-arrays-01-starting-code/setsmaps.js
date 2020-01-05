@@ -58,3 +58,11 @@ persons.add(person);
 person = null;
 
 console.log(persons);
+
+// WEAK MAPS
+person = { name: "Umesh" };
+const personData = new WeakMap();
+personData.set(person, "hello world");
+console.log(personData);
+person = null;
+console.log(personData);
