@@ -153,7 +153,7 @@ const transformedData = data.split(";");
 console.log(transformedData);
 
 // join()
-const nameFragments = ["Umesh", "Rajashekar"];
+const nameFragments = ["Umesh", "Rajashekar", "data"];
 const name = nameFragments.join(" ");
 console.log(name);
 
@@ -188,3 +188,7 @@ console.log(persons, deepCopyPersons);
 // deep copy with tiny arrow call
 const deepCopyPersons2 = [...persons.map(p => ({ name: p.name, age: p.age }))];
 console.log(deepCopyPersons2);
+
+// array destructuring
+const [firstName, lastName, ...otherInfo] = nameFragments;
+console.log(firstName, lastName, otherInfo);
