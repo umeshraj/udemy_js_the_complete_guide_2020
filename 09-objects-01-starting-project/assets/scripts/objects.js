@@ -5,6 +5,9 @@ movieList.style.backgroundColor = "red";
 movieList.style["background-color"] = "pink";
 movieList.style.display = "block";
 
+// dynamically key
+const userChosenKeyName = "level";
+
 let person = {
   name: "Umesh",
   age: 40,
@@ -12,7 +15,8 @@ let person = {
   greet: function() {
     alert("Hi, there");
   },
-  1.5: "hello"
+  1.5: "hello",
+  [userChosenKeyName]: 10
 };
 
 // person.greet();
@@ -30,3 +34,7 @@ console.log(person[1.5]);
 
 // order of properties
 console.log(person);
+
+// access using variable name
+const keyName = "name";
+console.log(person[keyName]);
