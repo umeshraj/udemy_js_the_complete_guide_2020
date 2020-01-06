@@ -11,7 +11,8 @@ let person = {
   hobbies: ["tennis", "cooking"],
   greet: function() {
     alert("Hi, there");
-  }
+  },
+  1.5: "hello"
 };
 
 // person.greet();
@@ -22,4 +23,10 @@ console.log(person);
 
 // remove a property
 delete person.isAdmin;
+console.log(person);
+
+// access key by number
+console.log(person[1.5]);
+
+// order of properties
 console.log(person);
