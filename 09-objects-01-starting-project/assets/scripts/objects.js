@@ -1,7 +1,23 @@
 const addMovieBtn = document.getElementById("add-movie-btn");
 const searchMovieBtn = document.getElementById("search-btn");
 
-const movie = [];
+const movies = [];
+
+const renderMovies = () => {
+  const movieList = document.getElementById("movie-list");
+  if (movies.length === 0) {
+    movieList.classList.remove("visible");
+  } else {
+    movieList.classList.add("visible");
+  }
+  movieList.innerHTML = ""; // clear all elements (not ideal)
+
+  movies.forEach(movie => {
+    const movieEl = document.createElement("li");
+    movieEl.textContent = movie.info.title;
+    movieList.append(movieEl);
+  });
+};
 
 const addMovieHandler = () => {
   // get user inputs and add to move
@@ -27,8 +43,8 @@ const addMovieHandler = () => {
   };
 
   // add to list
-  movie.push(newMovie);
-  console.log(newMovie);
+  movies.push(newMovie);
+  renderMovies();
 };
 
 addMovieBtn.addEventListener("click", addMovieHandler);
