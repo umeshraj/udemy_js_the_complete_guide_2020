@@ -76,3 +76,15 @@ const searchMovieHandler = () => {
 
 addMovieBtn.addEventListener("click", addMovieHandler);
 searchMovieBtn.addEventListener("click", searchMovieHandler);
+
+// arrow function works; regular function fails
+// const members = {
+//   teamName: "NYC",
+//   people: ["Umesh", "Abc"],
+//   getTeamMembers() {
+//     this.people.forEach(function(p) {
+//       console.log(p + "-" + this.teamName);
+//     });
+//   }
+// };
+// members.getTeamMembers();
