@@ -3,26 +3,31 @@ class Product {
   imageUrl;
   description;
   price;
+
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
 }
 
-console.log(new Product());
+// console.log(new Product());
 
 const productList = {
   products: [
-    {
-      title: "A Pillow",
-      imageUrl:
-        "https://cdn.shopify.com/s/files/1/0396/8269/products/feather-euro-pillow_default_lightbox_10655_1440x.progressive.jpg",
-      price: 19.99,
-      description: "A soft pillow"
-    },
-    {
-      title: "A car",
-      imageUrl:
-        "https://f1.media.brightcove.com/8/1078702682/1078702682_6004950245001_6004956161001-vs.jpg",
-      price: 89.99,
-      description: "a nice car"
-    }
+    new Product(
+      "A Pillow",
+      "https://cdn.shopify.com/s/files/1/0396/8269/products/feather-euro-pillow_default_lightbox_10655_1440x.progressive.jpg",
+      "A soft pillow",
+      19.99
+    ),
+    new Product(
+      "A car",
+      "https://f1.media.brightcove.com/8/1078702682/1078702682_6004950245001_6004956161001-vs.jpg",
+      "a nice car",
+      89.99
+    )
   ],
 
   render() {
