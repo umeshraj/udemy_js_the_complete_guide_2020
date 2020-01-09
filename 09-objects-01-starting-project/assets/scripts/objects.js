@@ -27,7 +27,7 @@ const renderMovies = (filter = "") => {
     // getFormattedTitle = getFormattedTitle.bind(movie);
     let text = getFormattedTitle.call(movie) + " - ";
     for (const key in info) {
-      if (key !== "title") {
+      if (key !== "title" && key !== "_title") {
         text = text + `${key}: ${info[key]}`;
       }
     }
@@ -43,11 +43,7 @@ const addMovieHandler = () => {
   const extraName = document.getElementById("extra-name").value;
   const extraValue = document.getElementById("extra-value").value;
 
-  if (
-    title.trim() === "" ||
-    extraName.trim() === "" ||
-    extraValue.trim() === ""
-  ) {
+  if (extraName.trim() === "" || extraValue.trim() === "") {
     return;
   }
 
@@ -55,13 +51,25 @@ const addMovieHandler = () => {
   const newMovie = {
     id: Math.random(),
     info: {
-      title: title,
+      set title(val) {
+        if (val.trim() === "") {
+          this._title = "DEFAULT";
+          return;
+        }
+        this._title = val;
+      },
+      get title() {
+        return this._title;
+      },
       [extraName]: extraValue
     },
     getFormattedTitle() {
       return this.info.title.toUpperCase();
     }
   };
+
+  newMovie.info.title = title; // using setter
+  console.log(newMovie.info.title); // using getter
 
   // add to list
   movies.push(newMovie);
