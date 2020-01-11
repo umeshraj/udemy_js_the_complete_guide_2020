@@ -1,5 +1,6 @@
 // part 1
 class Course {
+  #price;
   constructor(title, length, price) {
     this.title = title;
     this.length = length;
@@ -7,12 +8,12 @@ class Course {
   }
 
   get price() {
-    return `$${this._price}`;
+    return `$${this.#price}`;
   }
 
   set price(val) {
     if (val >= 0) {
-      this._price = val;
+      this.#price = val;
     } else {
       console.log("Unable to set negative price");
       return;
@@ -74,3 +75,6 @@ console.log(course1.price);
 
 const course3 = new Course("Neg", 10, -10);
 console.log(course3);
+
+// try to access private property
+course1.#price = 10;
