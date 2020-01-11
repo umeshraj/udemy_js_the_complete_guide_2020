@@ -6,6 +6,19 @@ class Course {
     this.price = price;
   }
 
+  get price() {
+    return `$${this._price}`;
+  }
+
+  set price(val) {
+    if (val >= 0) {
+      this._price = val;
+    } else {
+      console.log("Unable to set negative price");
+      return;
+    }
+  }
+
   lengthToPrice() {
     return this.length / this.price;
   }
@@ -31,9 +44,9 @@ console.log(course2.summary());
 // part 3
 
 class PracticalCourse extends Course {
-  constructor() {
-    super();
-    this.numOfExercises = 10;
+  constructor(title, length, price, numEx) {
+    super(title, price, length);
+    this.numOfExercises = numEx;
   }
 }
 
@@ -47,6 +60,17 @@ class TheoreticalCourse extends Course {
   }
 }
 
-const pract = new PracticalCourse("ur", 10, 11);
+const pract = new PracticalCourse("ur", 10, 11, 100);
+console.log(pract);
 const theory = new TheoreticalCourse("ab", 1, 2);
 theory.publish();
+
+// Part 4
+course1.price = 100;
+console.log(course1.price);
+
+course1.price = -10;
+console.log(course1.price);
+
+const course3 = new Course("Neg", 10, -10);
+console.log(course3);
