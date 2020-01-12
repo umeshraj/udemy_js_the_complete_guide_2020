@@ -20,5 +20,18 @@ function Person() {
   };
 }
 
-const person = new Person();
-person.greet();
+Person.prototype = {
+  printAge() {
+    console.log(this.age);
+  }
+};
+
+const p = new Person();
+p.greet();
+
+console.log(p.toString());
+
+console.log(p.__proto__);
+
+// using Person.prototype in an object
+p.printAge();
