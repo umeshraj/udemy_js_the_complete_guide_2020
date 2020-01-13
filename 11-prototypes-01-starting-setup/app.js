@@ -70,7 +70,22 @@ class Person extends AgedPerson {
 // // Global object
 // console.dir(Object);
 
-const p1 = new Person();
-const p2 = new Person();
-console.log(p1);
-console.log(p1.__proto__ === p2.__proto__);
+// const p1 = new Person();
+// const p2 = new Person();
+// console.log(p1);
+// console.log(p1.__proto__ === p2.__proto__);
+
+// 275: Getting & setting prototypes
+const course = {
+  title: "JS course",
+  rating: 3
+};
+// console.log(course.__proto__);
+// console.log(Object.getPrototypeOf(course));
+Object.setPrototypeOf(course, {
+  ...Object.getPrototypeOf(course),
+  printRating: function() {
+    console.log(`Rating: ${this.rating}/5`);
+  }
+});
+course.printRating();
