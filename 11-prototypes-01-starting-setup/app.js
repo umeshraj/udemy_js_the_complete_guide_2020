@@ -14,6 +14,9 @@ class Person extends AgedPerson {
     this.age = 40;
   }
 
+  greet2 = function() {
+    console.log("Greet 2 function");
+  };
   greet() {
     console.log(`Hi. I am ${this.name}. I am ${this.age} years old`);
   }
@@ -27,6 +30,15 @@ class Person extends AgedPerson {
 //     console.log(`Hi. I am ${this.name}. I am ${this.age} years old`);
 //   };
 // }
+
+// // adding a function to the prototype (instead of for every object)
+// function Person() {
+//   this.age = 40;
+//   this.name = "Max";
+// }
+// Person.prototype.greet = function() {
+//   console.log(`Hi. I am ${this.name}. I am ${this.age} years old`);
+// };
 
 // // adding static functions: static
 // Person.describe = function() {
@@ -58,5 +70,7 @@ class Person extends AgedPerson {
 // // Global object
 // console.dir(Object);
 
-const p = new Person();
-console.log(p);
+const p1 = new Person();
+const p2 = new Person();
+console.log(p1);
+console.log(p1.__proto__ === p2.__proto__);
