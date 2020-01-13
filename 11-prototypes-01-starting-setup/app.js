@@ -28,6 +28,11 @@ class Person extends AgedPerson {
 //   };
 // }
 
+// // adding static functions: static
+// Person.describe = function() {
+//   console.log("Creating person..");
+// };
+
 // Person.prototype = {
 //   printAge() {
 //     console.log(this.age);
@@ -39,12 +44,19 @@ class Person extends AgedPerson {
 //   console.log(this.age);
 // };
 
+// console.dir(Person);
+// const p = new Person();
+// p.greet();
+// p.printAge();
+// console.log(p);
+// // console.log(p.__proto__);
 // console.log(p.toString());
 
-// console.log(p.__proto__);
+// const p2 = new p.__proto__.constructor();
+// // console.log(p2);
 
-// using Person.prototype in an object
+// // Global object
+// console.dir(Object);
+
 const p = new Person();
-p.greet();
-p.printAge();
-console.log(p.__proto__);
+console.log(p);
