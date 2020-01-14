@@ -12,24 +12,35 @@ class DOMHelper {
   }
 }
 class ToolTip {
+  constructor(closeNotifierFunction) {
+    this.closeNotifier = closeNotifierFunction;
+  }
+
+  closeTooltip = () => {
+    this.detach();
+    this.closeNotifier();
+  };
+
   // using inefficient class to avoid bind
-  detach = () => {
+  detach() {
     this.element.remove();
     // older browsers
     // this.element.parentElement.removeChild(this.element);
-  };
+  }
   attach() {
     const toolTipElement = document.createElement("div");
     toolTipElement.className = "cart";
     toolTipElement.textContent = "DUMMY";
     // add option to remove on click
-    toolTipElement.addEventListener("click", this.detach);
+    toolTipElement.addEventListener("click", this.closeTooltip);
     this.element = toolTipElement;
     document.body.append(toolTipElement);
   }
 }
 
 class ProjectItem {
+  hasActiveTooltip = false;
+
   constructor(id, updateProjectListsFunction, type) {
     this.id = id;
     this.updateProjectListsHandler = updateProjectListsFunction;
@@ -38,8 +49,14 @@ class ProjectItem {
   }
 
   showMoreInfoHandler() {
-    const tooltip = new ToolTip();
+    if (this.hasActiveTooltip) {
+      return;
+    }
+    const tooltip = new ToolTip(() => {
+      this.hasActiveTooltip = false;
+    });
     tooltip.attach();
+    this.hasActiveTooltip = true;
   }
 
   connectMoreInfoButton() {
