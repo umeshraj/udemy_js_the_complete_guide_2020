@@ -11,7 +11,23 @@ class DOMHelper {
     destinationElement.append(element);
   }
 }
-class ToolTip {}
+class ToolTip {
+  // using inefficient class to avoid bind
+  detach = () => {
+    this.element.remove();
+    // older browsers
+    // this.element.parentElement.removeChild(this.element);
+  };
+  attach() {
+    const toolTipElement = document.createElement("div");
+    toolTipElement.className = "cart";
+    toolTipElement.textContent = "DUMMY";
+    // add option to remove on click
+    toolTipElement.addEventListener("click", this.detach);
+    this.element = toolTipElement;
+    document.body.append(toolTipElement);
+  }
+}
 
 class ProjectItem {
   constructor(id, updateProjectListsFunction, type) {
@@ -21,7 +37,19 @@ class ProjectItem {
     this.connectSwitchButton(type);
   }
 
-  connectMoreInfoButton() {}
+  showMoreInfoHandler() {
+    const tooltip = new ToolTip();
+    tooltip.attach();
+  }
+
+  connectMoreInfoButton() {
+    const projectItemElement = document.getElementById(this.id);
+    const moreInfoBtn = projectItemElement.querySelector(
+      "button:first-of-type"
+    );
+    moreInfoBtn.addEventListener("click", this.showMoreInfoHandler);
+  }
+
   connectSwitchButton(type) {
     const projectItemElement = document.getElementById(this.id);
     let switchBtn = projectItemElement.querySelector("button:last-of-type");
@@ -50,7 +78,7 @@ class ProjectList {
         new ProjectItem(prjItem.id, this.switchProject.bind(this), this.type)
       );
     }
-    console.log(this.projects);
+    // console.log(this.projects);
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
@@ -64,7 +92,7 @@ class ProjectList {
   }
 
   switchProject(projectId) {
-    console.log(projectId);
+    // console.log(projectId);
     // // long way to remove item
     // const projectIndex = this.projects.findIndex(p => p.id === projectId);
     // this.projects.splice(projectIndex, 1);
