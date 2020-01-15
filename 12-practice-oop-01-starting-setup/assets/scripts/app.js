@@ -11,9 +11,25 @@ class DOMHelper {
     destinationElement.append(element);
   }
 }
-class ToolTip {
+
+class Component {
+  // using inefficient class to avoid bind
+  detach() {
+    this.element.remove();
+    // older browsers
+    // this.element.parentElement.removeChild(this.element);
+  }
+
+  attach() {
+    document.body.append(this.element);
+  }
+}
+
+class ToolTip extends Component {
   constructor(closeNotifierFunction) {
+    super();
     this.closeNotifier = closeNotifierFunction;
+    this.create();
   }
 
   closeTooltip = () => {
@@ -21,20 +37,13 @@ class ToolTip {
     this.closeNotifier();
   };
 
-  // using inefficient class to avoid bind
-  detach() {
-    this.element.remove();
-    // older browsers
-    // this.element.parentElement.removeChild(this.element);
-  }
-  attach() {
+  create() {
     const toolTipElement = document.createElement("div");
     toolTipElement.className = "cart";
     toolTipElement.textContent = "DUMMY";
     // add option to remove on click
     toolTipElement.addEventListener("click", this.closeTooltip);
     this.element = toolTipElement;
-    document.body.append(toolTipElement);
   }
 }
 
