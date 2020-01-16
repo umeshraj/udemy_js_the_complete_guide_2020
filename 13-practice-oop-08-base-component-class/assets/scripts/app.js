@@ -171,9 +171,21 @@ class App {
       activeProjectsList.addProject.bind(activeProjectsList)
     );
 
+    // Insert script into html
     const someScript = document.createElement("script");
     someScript.textContent = "alert('Hi there!');";
     document.head.append(someScript);
+
+    // add path to js file into html
+    this.startAnalytics();
+  }
+
+  static startAnalytics() {
+    // insert path to js into html
+    const analyticsScript = document.createElement("script");
+    analyticsScript.src = "assets/scripts/analytics.js";
+    analyticsScript.defer = true;
+    document.head.append(analyticsScript);
   }
 }
 
