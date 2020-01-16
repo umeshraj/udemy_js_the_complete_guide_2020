@@ -177,7 +177,10 @@ class App {
     document.head.append(someScript);
 
     // add path to js file into html
-    this.startAnalytics();
+    // this.startAnalytics();
+    document
+      .getElementById("start-analytics-btn")
+      .addEventListener("click", this.startAnalytics);
   }
 
   static startAnalytics() {
