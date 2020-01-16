@@ -1,1 +1,3 @@
-console.log("Sending analytics data...");
+setInterval(() => {
+  console.log("Sending analytics data...");
+}, 3000);

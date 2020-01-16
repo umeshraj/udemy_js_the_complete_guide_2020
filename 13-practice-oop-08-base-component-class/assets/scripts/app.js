@@ -178,12 +178,15 @@ class App {
 
     // add path to js file into html
     // this.startAnalytics();
-    document
-      .getElementById("start-analytics-btn")
-      .addEventListener("click", this.startAnalytics);
+    // document
+    //   .getElementById("start-analytics-btn")
+    //   .addEventListener("click", this.startAnalytics);
 
     //start analytics on timeout
-    setTimeout(this.startAnalytics, 3000);
+    const timerId = setTimeout(this.startAnalytics, 3000);
+    document
+      .getElementById("stop-analytics-btn")
+      .addEventListener("click", () => clearTimeout(timerId));
   }
 
   static startAnalytics() {
