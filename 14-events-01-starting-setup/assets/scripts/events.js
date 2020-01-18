@@ -8,7 +8,7 @@ const buttons = document.querySelectorAll("button");
 // // another bad way
 const buttonClickHandler = event => {
   console.log(event);
-  event.target.disabled = true;
+  // event.target.disabled = true;
 };
 // button.onclick = buttonClickHandler;
 
@@ -25,5 +25,9 @@ const anotherButtonClickHandler = () => {
 
 // Adding event handler for multiple button
 buttons.forEach(button => {
-  button.addEventListener("click", buttonClickHandler);
+  button.addEventListener("mouseenter", buttonClickHandler);
+});
+
+window.addEventListener("scroll", event => {
+  console.log(event);
 });
