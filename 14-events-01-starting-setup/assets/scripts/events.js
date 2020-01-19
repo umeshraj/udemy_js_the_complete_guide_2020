@@ -81,5 +81,5 @@ button.addEventListener("click", event => {
 // Event delegation to ul
 const list = document.querySelector("ul");
 list.addEventListener("click", event => {
-  event.target.classList.toggle("highlight");
+  event.target.closest("li").classList.toggle("highlight");
 });
