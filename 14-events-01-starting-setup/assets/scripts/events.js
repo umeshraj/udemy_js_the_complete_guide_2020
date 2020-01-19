@@ -23,27 +23,34 @@ const anotherButtonClickHandler = () => {
 //   button.removeEventListener("click", buttonClickHandler);
 // }, 2000);
 
-// Adding event handler for multiple button
-buttons.forEach(button => {
-  button.addEventListener("mouseenter", buttonClickHandler);
-});
+// // Adding event handler for multiple button
+// buttons.forEach(button => {
+//   button.addEventListener("mouseenter", buttonClickHandler);
+// });
 
-window.addEventListener("scroll", event => {
+// window.addEventListener("scroll", event => {
+//   console.log(event);
+// });
+
+// // infinite scrolling
+// let curElementNumber = 0;
+
+// function scrollHandler() {
+//   const distanceToBottom = document.body.getBoundingClientRect().bottom;
+
+//   if (distanceToBottom < document.documentElement.clientHeight + 150) {
+//     const newDataElement = document.createElement("div");
+//     curElementNumber++;
+//     newDataElement.innerHTML = `<p>Element ${curElementNumber}</p>`;
+//     document.body.append(newDataElement);
+//   }
+// }
+
+// window.addEventListener("scroll", scrollHandler);
+
+// Form handling
+const form = document.querySelector("form");
+form.addEventListener("submit", event => {
+  event.preventDefault();
   console.log(event);
 });
-
-// infinite scrolling
-let curElementNumber = 0;
-
-function scrollHandler() {
-  const distanceToBottom = document.body.getBoundingClientRect().bottom;
-
-  if (distanceToBottom < document.documentElement.clientHeight + 150) {
-    const newDataElement = document.createElement("div");
-    curElementNumber++;
-    newDataElement.innerHTML = `<p>Element ${curElementNumber}</p>`;
-    document.body.append(newDataElement);
-  }
-}
-
-window.addEventListener("scroll", scrollHandler);
