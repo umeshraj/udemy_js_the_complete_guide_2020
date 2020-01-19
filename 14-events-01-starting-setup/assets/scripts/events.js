@@ -63,11 +63,12 @@ div.addEventListener("click", event => {
   console.log(event);
 });
 
-button.addEventListener("click", event => {
+button.addEventListener("click", function(event) {
   event.stopPropagation();
   event.stopImmediatePropagation();
   console.log("CLICKED BUTTON");
   console.log(event);
+  console.log(this);
 });
 
 // // Adding event listeners to all items
@@ -80,7 +81,8 @@ button.addEventListener("click", event => {
 
 // Event delegation to ul
 const list = document.querySelector("ul");
-list.addEventListener("click", event => {
+list.addEventListener("click", function(event) {
   event.target.closest("li").classList.toggle("highlight");
-  button.click();
+  // button.click();
+  console.log(this);
 });
