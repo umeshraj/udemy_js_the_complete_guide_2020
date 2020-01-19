@@ -70,10 +70,16 @@ button.addEventListener("click", event => {
   console.log(event);
 });
 
-// Adding event listeners to all items
-const listItems = document.querySelectorAll("li");
-listItems.forEach(listItem => {
-  listItem.addEventListener("click", event => {
-    event.target.classList.toggle("highlight");
-  });
+// // Adding event listeners to all items
+// const listItems = document.querySelectorAll("li");
+// listItems.forEach(listItem => {
+//   listItem.addEventListener("click", event => {
+//     event.target.classList.toggle("highlight");
+//   });
+// });
+
+// Event delegation to ul
+const list = document.querySelector("ul");
+list.addEventListener("click", event => {
+  event.target.classList.toggle("highlight");
 });
