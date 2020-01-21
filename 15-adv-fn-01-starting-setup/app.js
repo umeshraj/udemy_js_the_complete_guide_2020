@@ -64,7 +64,11 @@ console.log(calculateVatAmount(200));
 // closure in practice
 let userName = "Umesh";
 function greetUser() {
-  console.log("Hi " + userName);
+  //   let name = userName;
+  let name = "Anna";
+  console.log("Hi " + name);
 }
+
+let name = "Umesh Rajashekar";
 userName = "max";
 greetUser();
