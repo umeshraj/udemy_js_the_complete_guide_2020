@@ -72,3 +72,23 @@ function greetUser() {
 let name = "Umesh Rajashekar";
 userName = "max";
 greetUser();
+
+// Recursion
+function powerOfReg(x, n) {
+  let result = 1;
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+  return result;
+}
+
+console.log(powerOfReg(2, 3));
+
+function powerOf(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * powerOf(x, n - 1);
+  }
+}
+console.log(powerOf(2, 4));
