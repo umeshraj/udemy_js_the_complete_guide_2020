@@ -28,16 +28,14 @@ const setTimer = duration => {
 function trackUserHandler() {
   let positionData;
   getPosition()
-    .then(
-      posData => {
-        // console.log(posData);
-        positionData = posData;
-        return setTimer(2000);
-      },
-      err => {
-        console.log(err);
-      }
-    )
+    .then(posData => {
+      // console.log(posData);
+      positionData = posData;
+      return setTimer(2000);
+    })
+    .catch(err => {
+      console.log(err);
+    })
     .then(data => console.log(data, positionData));
 
   setTimer(2000).then(() => console.log("Timer done!"));
