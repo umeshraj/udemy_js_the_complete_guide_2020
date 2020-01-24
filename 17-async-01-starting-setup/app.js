@@ -26,9 +26,15 @@ const setTimer = duration => {
 };
 
 async function trackUserHandler() {
-  let positionData;
-  const posData = await getPosition();
-  const timerData = await setTimer(2000);
+  // define variables due to block scoping in try/catch
+  let posData;
+  let timerData;
+  try {
+    posData = await getPosition();
+    timerData = await setTimer(2000);
+  } catch (error) {
+    console.log(error);
+  }
   console.log(timerData, posData);
   // .then(posData => {
   //   // console.log(posData);
