@@ -14,8 +14,20 @@ function sendHttpRequest(method, url, data) {
 
     // add event listener
     xhr.onload = function() {
-      resolve(xhr.response);
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject(new Error("Something went wrong"));
+      }
     };
+
+    // error handler
+    xhr.onerror = function() {
+      reject(new Error("Failed to send request"));
+      // console.log(xhr.response);
+      // console.log(xhr.status);
+    };
+
     xhr.send(JSON.stringify(data));
   });
 
@@ -43,7 +55,7 @@ function sendHttpRequest(method, url, data) {
 async function fetchPosts() {
   const responseData = await sendHttpRequest(
     "GET",
-    "https://jsonplaceholder.typicode.com/posts"
+    "https://jsonplaceholder.typicode.com/pos"
   );
   const listOfPosts = responseData; // since we set responseType=json
 
