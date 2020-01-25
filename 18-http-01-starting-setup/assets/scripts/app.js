@@ -5,34 +5,35 @@ const form = document.querySelector("#new-post form");
 const fetchButton = document.querySelector("#available-posts button");
 const postList = document.querySelector("ul");
 
-function sendHttpRequest(method, url, data) {
-  const promise = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+// using old XMLHttpRequest
+// function sendHttpRequest(method, url, data) {
+//   const promise = new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
 
-    xhr.open(method, url);
-    xhr.responseType = "json";
+//     xhr.open(method, url);
+//     xhr.responseType = "json";
 
-    // add event listener
-    xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(xhr.response);
-      } else {
-        reject(new Error("Something went wrong"));
-      }
-    };
+//     // add event listener
+//     xhr.onload = function() {
+//       if (xhr.status >= 200 && xhr.status < 300) {
+//         resolve(xhr.response);
+//       } else {
+//         reject(new Error("Something went wrong"));
+//       }
+//     };
 
-    // error handler
-    xhr.onerror = function() {
-      reject(new Error("Failed to send request"));
-      // console.log(xhr.response);
-      // console.log(xhr.status);
-    };
+//     // error handler
+//     xhr.onerror = function() {
+//       reject(new Error("Failed to send request"));
+//       // console.log(xhr.response);
+//       // console.log(xhr.status);
+//     };
 
-    xhr.send(JSON.stringify(data));
-  });
+//     xhr.send(JSON.stringify(data));
+//   });
 
-  return promise;
-}
+//   return promise;
+// }
 
 // using then
 // function fetchPosts() {
@@ -52,11 +53,18 @@ function sendHttpRequest(method, url, data) {
 //   );
 // }
 
+// using modern fetch api
+function sendHttpRequest(method, url) {
+  return fetch(url).then(response => {
+    return response.json();
+  });
+}
+
 async function fetchPosts() {
   try {
     const responseData = await sendHttpRequest(
       "GET",
-      "https://jsonplaceholder.typicode.com/pos"
+      "https://jsonplaceholder.typicode.com/posts"
     );
     const listOfPosts = responseData; // since we set responseType=json
 
