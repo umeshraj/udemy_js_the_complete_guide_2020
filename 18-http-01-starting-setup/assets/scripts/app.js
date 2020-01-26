@@ -98,6 +98,7 @@ async function fetchPosts() {
     }
   } catch (error) {
     alert(error.message);
+    console.log(error.response);
   }
 }
 
@@ -115,7 +116,11 @@ async function createPost(title, content) {
   // fd.append("body", content);
   fd.append("userId", userId);
 
-  sendHttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", fd);
+  const response = await axios.post(
+    "https://jsonplaceholder.typicode.com/posts",
+    post
+  );
+  console.log(response);
 }
 
 // get posts on button click
