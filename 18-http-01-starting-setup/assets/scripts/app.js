@@ -58,10 +58,11 @@ const postList = document.querySelector("ul");
 function sendHttpRequest(method, url, data) {
   return fetch(url, {
     method: method,
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
+    body: data
+    // body: JSON.stringify(data)
+    // headers: {
+    //   "Content-Type": "application/json"
+    // }
   })
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
@@ -84,7 +85,7 @@ async function fetchPosts() {
   try {
     const responseData = await sendHttpRequest(
       "GET",
-      "https://jsonplaceholder.typicode.com/pos"
+      "https://jsonplaceholder.typicode.com/posts"
     );
     const listOfPosts = responseData; // since we set responseType=json
 
@@ -108,7 +109,13 @@ async function createPost(title, content) {
     userId: userId
   };
 
-  sendHttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", post);
+  // form data
+  const fd = new FormData(form);
+  // fd.append("title", title);
+  // fd.append("body", content);
+  fd.append("userId", userId);
+
+  sendHttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", fd);
 }
 
 // get posts on button click
