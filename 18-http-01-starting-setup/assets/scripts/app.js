@@ -9,6 +9,7 @@ const postList = document.querySelector("ul");
 // function sendHttpRequest(method, url, data) {
 //   const promise = new Promise((resolve, reject) => {
 //     const xhr = new XMLHttpRequest();
+//      xhr.setRequestHeader('Content-Type, 'application/json')
 
 //     xhr.open(method, url);
 //     xhr.responseType = "json";
@@ -57,7 +58,10 @@ const postList = document.querySelector("ul");
 function sendHttpRequest(method, url, data) {
   return fetch(url, {
     method: method,
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
   }).then(response => {
     return response.json();
   });
