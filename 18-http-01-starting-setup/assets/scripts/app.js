@@ -54,8 +54,11 @@ const postList = document.querySelector("ul");
 // }
 
 // using modern fetch api
-function sendHttpRequest(method, url) {
-  return fetch(url).then(response => {
+function sendHttpRequest(method, url, data) {
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data)
+  }).then(response => {
     return response.json();
   });
 }
