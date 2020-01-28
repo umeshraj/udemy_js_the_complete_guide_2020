@@ -1,5 +1,7 @@
 import { ProjectList } from "./App/ProjectList.js";
 
+globalThis.DEFAULT_VALUE = "Umesh";
+
 class App {
   static init() {
     const activeProjectsList = new ProjectList("active");
