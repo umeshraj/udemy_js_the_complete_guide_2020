@@ -1,0 +1,11 @@
+{
+  "name": "20-modules-01-starting-project",
+  "version": "1.0.0",
+  "description": "js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Umesh",
+  "license": "ISC"
+}
