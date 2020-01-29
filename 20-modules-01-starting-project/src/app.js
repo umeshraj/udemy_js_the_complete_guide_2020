@@ -1,7 +1,11 @@
+import * as _ from "lodash";
 import { ProjectList } from "./App/ProjectList";
 
 // eslint-disable-next-line no-undef
 globalThis.DEFAULT_VALUE = "Umesh";
+
+// testing lodash
+console.log(_.difference([0, 1], [1, 2]));
 
 class App {
   static init() {
