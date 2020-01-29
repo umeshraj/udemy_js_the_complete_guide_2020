@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "no-undef": "off"
   }
 }
