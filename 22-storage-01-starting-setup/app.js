@@ -9,12 +9,12 @@ const user = {
 };
 
 storeBtn.addEventListener("click", () => {
-  localStorage.setItem("uid", userId);
+  sessionStorage.setItem("uid", userId);
   localStorage.setItem("user", JSON.stringify(user));
 });
 
 retrBtn.addEventListener("click", () => {
-  const extracetedId = localStorage.getItem("uid");
+  const extracetedId = sessionStorage.getItem("uid");
   const extractedUser = JSON.parse(localStorage.getItem("user"));
   console.log(extractedUser);
   if (extracetedId) {
