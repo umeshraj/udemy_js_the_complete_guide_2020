@@ -1,10 +1,11 @@
 const storeBtn = document.getElementById("store-btn");
 const retrBtn = document.getElementById("retrieve-btn");
 
+let db;
 const dbRequest = indexedDB.open("StorageDummy", 1);
 
 dbRequest.onupgradeneeded = function(event) {
-  const db = event.target.result;
+  db = event.target.result;
   const objStore = db.createObjectStore("products", { keyPath: "id" });
 
   objStore.transaction.oncomplete = function(event) {
@@ -19,13 +20,34 @@ dbRequest.onupgradeneeded = function(event) {
     });
   };
 };
+
 dbRequest.onerror = function(event) {
   console.log("Database ERROR!");
 };
 
+dbRequest.onsuccess = function(event) {
+  db = event.target.result;
+};
+
 storeBtn.addEventListener("click", () => {
-  const userId = "u123";
-  const user = { name: "Max", age: 30 };
+  const producStore = db
+    .transaction("products", "readwrite")
+    .objectStore("products");
+  producStore.add({
+    id: "p2",
+    title: "A second product",
+    price: 20.12,
+    tags: ["cheap", "luxury"]
+  });
 });
 
-retrBtn.addEventListener("click", () => {});
+retrBtn.addEventListener("click", () => {
+  const producStore = db
+    .transaction("products", "readwrite")
+    .objectStore("products");
+  const request = producStore.get("p2");
+
+  request.onsuccess = function() {
+    console.log(request.result);
+  };
+});
