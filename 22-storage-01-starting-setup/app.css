@@ -1,0 +1,27 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 3rem;
+}
+
+button {
+  font: inherit;
+  background: blue;
+  color: white;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border: 1px solid blue;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.26);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background: #7904ff;
+  border-color: #7904ff;
+}
