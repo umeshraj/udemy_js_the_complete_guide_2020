@@ -1,3 +1,5 @@
+import "core-js";
+
 const button = document.querySelector("button");
 const textParagaph = document.querySelector("p");
 
