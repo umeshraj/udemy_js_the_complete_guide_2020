@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  font-size: 1.25rem;
+  background: #36007c;
+  color: white;
+  border: 1px solid #36007c;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background: #55007c;
+  border-color: #55007c;
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background: #ccc;
+  color: #9b9b9b;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #36007c;
+  border-color: #36007c transparent #36007c transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 15rem);
+    width: 30rem;
+  }
+}

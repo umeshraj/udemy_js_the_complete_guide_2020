@@ -1,0 +1,15 @@
+#selected-place {
+  width: 40rem;
+  height: 25rem;
+  max-width: 90%;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+}
+
+#selected-place > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
