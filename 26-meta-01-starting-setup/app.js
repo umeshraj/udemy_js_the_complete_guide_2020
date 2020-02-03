@@ -21,18 +21,18 @@ console.log(user.toString());
 const company = {
   curEmployee: 0,
   employees: ["Max", "Manu", "Anna"],
-  next() {
-    if (this.curEmployee >= this.employees.length) {
-      return { value: this.curEmployee, done: true };
-    }
+  //   next() {
+  //     if (this.curEmployee >= this.employees.length) {
+  //       return { value: this.curEmployee, done: true };
+  //     }
 
-    const returnValue = {
-      value: this.employees[this.curEmployee],
-      done: false
-    };
-    this.curEmployee++;
-    return returnValue;
-  },
+  //     const returnValue = {
+  //       value: this.employees[this.curEmployee],
+  //       done: false
+  //     };
+  //     this.curEmployee++;
+  //     return returnValue;
+  //   },
   [Symbol.iterator]: function* employeeGenerator() {
     // let employee = company.next();
     // while (!employee.done) {
