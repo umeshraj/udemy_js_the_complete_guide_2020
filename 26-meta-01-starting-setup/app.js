@@ -32,6 +32,19 @@ const company = {
     };
     this.curEmployee++;
     return returnValue;
+  },
+  [Symbol.iterator]: function* employeeGenerator() {
+    // let employee = company.next();
+    // while (!employee.done) {
+    //   yield employee.value;
+    //   employee = company.next();
+    // }
+
+    let currentEmployee = 0;
+    while (currentEmployee < this.employees.length) {
+      yield this.employees[currentEmployee];
+      currentEmployee++;
+    }
   }
 };
 
@@ -42,9 +55,24 @@ const company = {
 // console.log(company.next());
 // console.log(company.next());
 
-// calling next with a loop
-let employee = company.next();
-while (!employee.done) {
-  console.log(employee.value);
-  employee = company.next();
+// // calling next with a loop
+// let employee = company.next();
+// while (!employee.done) {
+//   console.log(employee.value);
+//   employee = company.next();
+// }
+
+// const it = company.getEmployee();
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+
+// making an object generator
+for (employee of company) {
+  console.log(employee);
 }
+
+// spread also look for next()
+console.log([...company]);
