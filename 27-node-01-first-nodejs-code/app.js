@@ -1,4 +1,9 @@
-console.log("Hello, world!");
+const fs = require("fs");
 
-const userName = "Umesh";
-console.log(`Hi, ${userName}`);
+fs.writeFile("user-data.txt", "username=Umesh", err => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Wrote to file");
+  }
+});
