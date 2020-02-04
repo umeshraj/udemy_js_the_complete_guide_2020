@@ -91,3 +91,14 @@ Reflect.setPrototypeOf(course, {
   }
 });
 console.log(course.toString());
+
+// Proxy API
+
+const courseHandler = {
+  get(obj, propertyName) {
+    console.log(propertyName);
+    return obj[propertyName] || "NOT FOUND";
+  }
+};
+const pCourse = new Proxy(course, courseHandler);
+console.log(pCourse.title, pCourse.length);
