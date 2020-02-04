@@ -1,3 +1,4 @@
-const userName = 'Max';
+console.log("Hello, world!");
 
-console.log(`Hi ${userName}!`);
+const userName = "Umesh";
+console.log(`Hi, ${userName}`);
