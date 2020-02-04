@@ -76,3 +76,7 @@ for (employee of company) {
 
 // spread also look for next()
 console.log([...company]);
+
+// Arrays use generators
+const persons = ["max", "manu"];
+console.log(persons);
