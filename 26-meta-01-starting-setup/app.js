@@ -98,7 +98,16 @@ const courseHandler = {
   get(obj, propertyName) {
     console.log(propertyName);
     return obj[propertyName] || "NOT FOUND";
+  },
+
+  set(obj, propertyName, newValue) {
+    if (propertyName === "rating") {
+      return;
+    }
+    obj[propertyName] = newValue;
   }
 };
 const pCourse = new Proxy(course, courseHandler);
-console.log(pCourse.title, pCourse.length);
+
+pCourse.rating = 5;
+console.log(pCourse.title, pCourse.length, pCourse.rating);
