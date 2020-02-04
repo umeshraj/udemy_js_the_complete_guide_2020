@@ -80,3 +80,14 @@ console.log([...company]);
 // Arrays use generators
 const persons = ["max", "manu"];
 console.log(persons);
+
+// Reflect API
+const course = {
+  title: "JS course"
+};
+Reflect.setPrototypeOf(course, {
+  toString() {
+    return this.title;
+  }
+});
+console.log(course.toString());
