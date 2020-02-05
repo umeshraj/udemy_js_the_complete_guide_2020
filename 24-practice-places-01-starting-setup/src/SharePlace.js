@@ -39,6 +39,23 @@ class PlaceFinder {
     } else {
       this.map = new Map(coordinates);
     }
+    fetch("http://localhost:3000/add-location", {
+      method: "POST",
+      body: JSON.stringify({
+        address: address,
+        lat: coordinates.lat,
+        lng: coordinates.lng
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
     this.shareBtn.disabled = false;
     const sharedLinkInputElement = document.getElementById("share-link");
     sharedLinkInputElement.value = `${
