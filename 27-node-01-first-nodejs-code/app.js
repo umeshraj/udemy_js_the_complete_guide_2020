@@ -3,6 +3,10 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// using the ejs templating engine
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 // body parsing with express
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -13,10 +17,9 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   let userName = req.body.username || "Unknown user";
-  console.log(userName);
-  res.send(
-    `<h1>Hi ${userName}</h1><form method='POST' action='/'><input name='username' type='text'><button type='submit'>Send</button></form>`
-  );
+  res.render("index", {
+    user: userName
+  });
 });
 
 app.listen(3000);
