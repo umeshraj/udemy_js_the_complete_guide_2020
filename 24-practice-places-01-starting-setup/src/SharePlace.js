@@ -15,9 +15,7 @@ class PlaceFinder {
 
   sharePlaceHandler() {
     const sharedLinkInputElement = document.getElementById("share-link");
-
     if (!navigator.clipboard) {
-      console.log(sharedLinkInputElement.textContent);
       sharedLinkInputElement.select();
       return;
     }
@@ -25,7 +23,7 @@ class PlaceFinder {
     navigator.clipboard
       .writeText(sharedLinkInputElement.value)
       .then(() => {
-        alert("Copied to clipboard");
+        alert("Copied into clipboard!");
       })
       .catch(err => {
         console.log(err);
@@ -54,7 +52,6 @@ class PlaceFinder {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         const locationId = data.locId;
         this.shareBtn.disabled = false;
         const sharedLinkInputElement = document.getElementById("share-link");
@@ -64,17 +61,21 @@ class PlaceFinder {
 
   locateUserHandler() {
     if (!navigator.geolocation) {
-      alert("Location feature is not available. Manually enter address");
+      alert(
+        "Location feature is not available in your browser - please use a more modern browser or manually enter an address."
+      );
       return;
     }
-
-    const modal = new Modal("loading-modal-content", "Loading location");
+    const modal = new Modal(
+      "loading-modal-content",
+      "Loading location - please wait!"
+    );
     modal.show();
     navigator.geolocation.getCurrentPosition(
       async successResult => {
         const coordinates = {
-          lat: successResult.coords.latitude,
-          lng: successResult.coords.longitude
+          lat: successResult.coords.latitude + Math.random() * 50,
+          lng: successResult.coords.longitude + Math.random() * 50
         };
         const address = await getAddressFromCoords(coordinates);
         modal.hide();
@@ -82,7 +83,9 @@ class PlaceFinder {
       },
       error => {
         modal.hide();
-        alert("Could not locate you. Manually enter address");
+        alert(
+          "Could not locate you unfortunately. Please enter an address manually!"
+        );
       }
     );
   }
@@ -90,23 +93,23 @@ class PlaceFinder {
   async findAddressHandler(event) {
     event.preventDefault();
     const address = event.target.querySelector("input").value;
-    if (!address || address.trim().length == 0) {
-      alert("Invalid address");
+    if (!address || address.trim().length === 0) {
+      alert("Invalid address entered - please try again!");
       return;
     }
-
-    const modal = new Modal("loading-modal-content", "Loading location");
+    const modal = new Modal(
+      "loading-modal-content",
+      "Loading location - please wait!"
+    );
     modal.show();
-
     try {
       const coordinates = await getCoordsFromAddress(address);
       this.selectPlace(coordinates, address);
     } catch (err) {
       alert(err.message);
     }
-
     modal.hide();
   }
 }
 
-new PlaceFinder();
+const placeFinder = new PlaceFinder();
