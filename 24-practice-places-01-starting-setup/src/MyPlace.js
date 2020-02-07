@@ -1,10 +1,11 @@
 import { Map } from "./UI/Map";
+import sanitizeHtml from "sanitize-html";
 
 class LoadedPlace {
   constructor(coordinates, address) {
     new Map(coordinates);
     const headerTitleEl = document.querySelector("header h1");
-    headerTitleEl.textContent = address;
+    headerTitleEl.textContent = sanitizeHtml(address);
   }
 }
 
