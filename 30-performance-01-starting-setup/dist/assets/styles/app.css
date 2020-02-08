@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b6004c;
+}
+
+label, input {
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  font: inherit;
+  padding: 0.15rem 0.25rem;
+  border: 1px solid #ccc;
+  margin: 0.5rem 0;
+}
+
+input:focus {
+  background: #e2e2e2;
+}
+
+button {
+  font: inherit;
+  background: #4e0097;
+  color: white;
+  border: 1px solid #4e0097;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background: #6e0dc9;
+  border-color: #6e0dc9;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+#shop-controls {
+  margin: 5rem auto 0 auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
+#product-list {
+  list-style: none;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 40rem;
+  padding: 0;
+}
+
+#product-list li {
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+#product-list h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
