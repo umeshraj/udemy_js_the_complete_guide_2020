@@ -3,9 +3,7 @@ const form = document.getElementById("user-input");
 function signupHandler(event) {
   event.preventDefault();
 
-  console.log("Hello!");
-
-  const userNameInput = docment.getElementById("username");
+  const userNameInput = document.getElementById("username");
   const enteredUserName = userNameInput.value;
 
   const passwordInput = document.getElementById("password");
@@ -29,4 +27,4 @@ function signupHandler(event) {
   console.log("Hi. I am " + user.userName);
 }
 
-form.addEventListener("sumbit", signupHandler);
+form.addEventListener("submit", signupHandler);
