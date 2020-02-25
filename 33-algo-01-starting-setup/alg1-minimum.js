@@ -37,5 +37,7 @@ function getMin2(numbers) {
 }
 
 const testNumbers = [3, 1, 2, 0];
+console.log(testNumbers);
 const myMin = getMin2(testNumbers);
+console.log(testNumbers);
 console.log(myMin);
