@@ -6,7 +6,9 @@ function add(a: number, b: number) {
   return a + b;
 }
 
-function printResult(result: any, printMode: "console" | "alert"): void {
+type PrintMode = "console" | "alert";
+
+function printResult(result: any, printMode: PrintMode): void {
   if (printMode == "console") {
     console.log(result);
   } else if (printMode == "alert") {
