@@ -7,11 +7,14 @@ function add(a: number, b: number) {
 }
 
 type PrintMode = "console" | "alert";
-
-function printResult(result: any, printMode: PrintMode): void {
-  if (printMode == "console") {
+enum OutputMode {
+  CONSOLE,
+  ALERT
+}
+function printResult(result: any, printMode: OutputMode): void {
+  if (printMode == OutputMode.CONSOLE) {
     console.log(result);
-  } else if (printMode == "alert") {
+  } else if (printMode == OutputMode.ALERT) {
     alert(result);
   }
 }
@@ -37,6 +40,6 @@ buttonElement.addEventListener("click", () => {
   // results.push(5);
   // printResult(results);
   // results[0].print();
-  printResult(result, "console");
-  printResult(result, "alert");
+  printResult(result, OutputMode.CONSOLE);
+  printResult(result, OutputMode.ALERT);
 });
