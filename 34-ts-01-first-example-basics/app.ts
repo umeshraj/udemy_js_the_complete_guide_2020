@@ -13,7 +13,9 @@ function printResult(result: any): void {
 // const result = add(5, 3);
 // console.log(result);
 
-const results: { res: number; print: () => void }[] = [];
+type CalculationResults = { res: number; print: () => void };
+
+const results: CalculationResults[] = [];
 
 buttonElement.addEventListener("click", () => {
   const num1 = +num1Input.value;
