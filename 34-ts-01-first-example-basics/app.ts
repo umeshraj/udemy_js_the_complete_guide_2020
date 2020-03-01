@@ -64,7 +64,8 @@ type CalculationResults  = CalculationContainer[];
 
 // type CalculationResults = { res: number; print: () => void };
 
-const results: CalculationResults[] = [];
+// const results: CalculationResults[] = [];
+const results: Array<CalculationContainer> = [];
 
 buttonElement.addEventListener("click", () => {
   const num1 = +num1Input.value;
@@ -83,3 +84,10 @@ buttonElement.addEventListener("click", () => {
   printResult(result, OutputMode.CONSOLE);
   printResult(result, OutputMode.ALERT);
 });
+
+function logAndEcho<T>(val: T){
+  console.log(val);
+  return val;
+}
+
+logAndEcho<string>('Hello there').split(' ');
