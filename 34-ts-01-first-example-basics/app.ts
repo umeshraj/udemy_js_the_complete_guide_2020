@@ -7,8 +7,26 @@
 //   }
 // }
 
-class User {
+interface Greetable{
+  name: string;
+}
+
+interface Printable{
+  print(): void
+}
+
+class User implements Greetable, Printable{
   constructor(public name: string, private age: number) {}
+
+  print(){
+    console.log(this.name);
+  }
+}
+
+class Admin extends User{
+  constructor(name: string, age: number, private permissions: []string){
+    super(name, age);
+  }
 }
 
 const user = new User("Umesh", 23);
@@ -38,8 +56,13 @@ function printResult(result: any, printMode: OutputMode): void {
 
 // const result = add(5, 3);
 // console.log(result);
+interface CalculationContainer{
+  res: number;
+  print() :void;
+}
+type CalculationResults  = CalculationContainer[];
 
-type CalculationResults = { res: number; print: () => void };
+// type CalculationResults = { res: number; print: () => void };
 
 const results: CalculationResults[] = [];
 
