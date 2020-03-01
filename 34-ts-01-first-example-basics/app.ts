@@ -1,7 +1,14 @@
+// class User {
+//   public name: string;
+//   private age: number;
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
 class User {
-  public name: string;
-  private age: number;
-  constructor(name: string, age: number) {
+  constructor(public name: string, private age: number) {
     this.name = name;
     this.age = age;
   }
