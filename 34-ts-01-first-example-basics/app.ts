@@ -7,24 +7,24 @@
 //   }
 // }
 
-interface Greetable{
+interface Greetable {
   name: string;
 }
 
-interface Printable{
-  print(): void
+interface Printable {
+  print(): void;
 }
 
-class User implements Greetable, Printable{
+class User implements Greetable, Printable {
   constructor(public name: string, private age: number) {}
 
-  print(){
+  print() {
     console.log(this.name);
   }
 }
 
-class Admin extends User{
-  constructor(name: string, age: number, private permissions: []string){
+class Admin extends User {
+  constructor(name: string, age: number, private permissions: string) {
     super(name, age);
   }
 }
@@ -35,7 +35,7 @@ console.log(user.name);
 
 const num1Input = document.getElementById("num1") as HTMLInputElement;
 const num2Input = document.getElementById("num2") as HTMLInputElement;
-const buttonElement = document.querySelector("button");
+const buttonElement = document.querySelector("button")!;
 
 function add(a: number, b: number) {
   return a + b;
@@ -56,11 +56,11 @@ function printResult(result: any, printMode: OutputMode): void {
 
 // const result = add(5, 3);
 // console.log(result);
-interface CalculationContainer{
+interface CalculationContainer {
   res: number;
-  print() :void;
+  print(): void;
 }
-type CalculationResults  = CalculationContainer[];
+type CalculationResults = CalculationContainer[];
 
 // type CalculationResults = { res: number; print: () => void };
 
@@ -85,9 +85,9 @@ buttonElement.addEventListener("click", () => {
   printResult(result, OutputMode.ALERT);
 });
 
-function logAndEcho<T>(val: T){
+function logAndEcho<T>(val: T) {
   console.log(val);
   return val;
 }
 
-logAndEcho<string>('Hello there').split(' ');
+logAndEcho<string>("Hello there").split(" ");
