@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Components</title>
+    <!-- js -->
+    <script src="modal.js"></script>
+  </head>
+  <body>
+    <uc-modal>
+      <h1 slot="title">The Modal Title</h1>
+      <p>This is our first web component</p>
+    </uc-modal>
+    <!-- code to open modal -->
+    <script>
+      const modal = document.querySelector("uc-modal");
+      setTimeout(() => {
+        modal.open();
+      }, 3000);
+    </script>
+  </body>
+</html>
