@@ -1,3 +1,16 @@
+class User {
+  public name: string;
+  private age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const user = new User("Umesh", 23);
+console.log(user.name);
+// console.log(user.age);
+
 const num1Input = document.getElementById("num1") as HTMLInputElement;
 const num2Input = document.getElementById("num2") as HTMLInputElement;
 const buttonElement = document.querySelector("button");
