@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components</title>
+    <style>
+      div{
+        border: 2px solid orange;
+      }
+    </style>
     <!-- js -->
     <script src="tooltip.js"></script>
   </head>
   <body>
-    <p><uc-tooltip>Web components</uc-tooltip are awesome!></p>
+    <p><uc-tooltip text="Web components is a set of standards">Web components</uc-tooltip are awesome!></p>
+    
+    <uc-tooltip>Here we go!</uc-tooltip>
     
   </body>
 </html>
