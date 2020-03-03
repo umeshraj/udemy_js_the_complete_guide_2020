@@ -14,6 +14,7 @@
   </head>
   <body>
     <template id="tooltip-template">
+      <slot>Some default</slot>
       <span> (?)</span>
     </template>
     <p>
@@ -23,6 +24,6 @@
       are awesome!
     </p>
 
-    <uc-tooltip>Here we go!</uc-tooltip>
+    <uc-tooltip></uc-tooltip>
   </body>
 </html>
