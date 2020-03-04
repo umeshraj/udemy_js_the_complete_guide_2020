@@ -28,7 +28,7 @@ class InfoToggle extends HTMLElement {
     if (this.hasAttribute("is-visible")) {
       if (this.getAttribute("is-visible") === "true") {
         this._isVisible = true;
-        this._infoBox.style = "block";
+        this._infoBox.style.display = "block";
         this._toggleButton.textContent = "Hide";
       }
     }
