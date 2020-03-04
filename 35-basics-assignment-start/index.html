@@ -5,33 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Web Components</title>
-    <style>
-      #info-box {
-        display: none;
-      }
-    </style>
+    <script src="info-toggle.js"></script>
   </head>
   <body>
-    <button>Show</button>
-    <p id="info-box">More infos!</p>
-
-    <script>
-      const button = document.querySelector('button');
-      const infoEl = document.querySelector('p');
-
-      let isHidden = true;
-
-      button.addEventListener('click', () => {
-        if (isHidden) {
-          infoEl.style.display = 'block';
-          button.textContent = 'Hide';
-          isHidden = false;
-        } else {
-          infoEl.style.display = 'none';
-          button.textContent = 'Show';
-          isHidden = true;
-        }
-      });
-    </script>
+    <uc-info-toggle is-visible="true">This works!!</uc-info-toggle>
   </body>
 </html>
