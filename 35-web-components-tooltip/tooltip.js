@@ -2,6 +2,7 @@ class Tooltip extends HTMLElement {
   constructor() {
     super();
     this._tooltipContainer;
+    this._tooltipIcon;
     this._tooltipText = "Dummy tooltip text";
     this.attachShadow({ mode: "open" });
     const template = document.querySelector("#tooltip-template");
@@ -55,10 +56,15 @@ class Tooltip extends HTMLElement {
     if (this.hasAttribute("text")) {
       this._tooltipText = this.getAttribute("text");
     }
-    const tooltipIcon = this.shadowRoot.querySelector("span");
-    tooltipIcon.addEventListener("mouseenter", this._showTooltip.bind(this));
-    tooltipIcon.addEventListener("mouseleave", this._hideTooltip.bind(this));
-    this.shadowRoot.appendChild(tooltipIcon);
+    this._tooltipIcon = this.shadowRoot.querySelector("span");
+    this._tooltipIcon.addEventListener(
+      "mouseenter",
+      this._showTooltip.bind(this)
+    );
+    this._tooltipIcon.addEventListener(
+      "mouseleave",
+      this._hideTooltip.bind(this)
+    );
     this.style.position = "relative";
   }
 
@@ -74,6 +80,11 @@ class Tooltip extends HTMLElement {
 
   static get observedAttributes() {
     return ["text"];
+  }
+
+  disconnectedCallback() {
+    this._tooltipIcon.removeEventListener("mouseenter", this._showTooltip);
+    this._tooltipIcon.removeEventListener("mouseenter", this._hideTooltip);
   }
 
   _showTooltip() {
