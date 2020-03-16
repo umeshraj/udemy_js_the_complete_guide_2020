@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       html {
         --color-primary: lightblue;
+        font-family: sans-serif;
       }
 
-      div {
+      /* div {
         border: 2px solid orange;
-      }
+      } */
 
-      uc-tooltip {
+      /* uc-tooltip {
         border: 1px solid blue;
         padding: 0.15rem;
-      }
+      } */
 
       /* uc-tooltip.important {
         background: green;
@@ -40,7 +44,6 @@
     </p>
 
     <uc-tooltip></uc-tooltip>
-    <div>This does not get shadow dom styles</div>
 
     <!-- custom a href -->
     <a is="uc-confirm-link" href="https://www.google.com">Google</a>
