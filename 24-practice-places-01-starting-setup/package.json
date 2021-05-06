@@ -24,6 +24,6 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
-    "sanitize-html": "^1.21.1"
+    "sanitize-html": "^2.3.2"
   }
 }
